@@ -1,0 +1,128 @@
+Lesson5 Notes
+
+How to define a function
+
+def print_ip():
+	print("My IP address is 192.168.1.1")  - this defines the function
+    return
+
+print_ip()  this calls the function processes from top to bottom.
+
+print_ip - this is a reference to the function it does not call it
+
+return_val = print_ip()
+print(return_val)
+print(type(return_val))  this prints None - all functions have a return value.
+
+
+def print_ip(ip_addr):  - passes a value to a function
+	print("My IP address is {}").format(ip_addr))  
+    return
+	
+you must pass as many arguments as you specify in the function definition.
+
+these arguments are POSITIONAL - they map in the order they are listed.
+
+You can also define what you pass with named arguments here the order does not matter.
+
+Positional arguments can be mixed with named arguments, but you have to place them in the right order - all positional arguments must come BEFORE any named arguments.
+
+Can alao have default values in the function definition. 
+Then you can pass in arguments for variables that need values
+
+A list of positional variables can be passed to a function
+
+print_ip(*my_list) passes as a sequence of values - treats each element inside the list separately.
+
+print_ip(**my_dict) can also work, choose the exact keys that match the parameters
+
+be careful passing in mutables.  It is very easy to accidentally modify what you passed to the function.
+
+namespaces in Python - similar to variable scope (local vs. global)
+
+If a variable isn't defined locally, Python will look in the global namespace next.
+
+Misc Topics
+
+Python Classes and Methods
+
+hierarchy makes sharing code easier
+
+class MyClass(object): #note camel-case spelling of class name, pass object for compatability
+	def__int__(self, ip_addr, username, password):  #initialize with self
+	
+
+can have positional or named arguments as well.
+
+python modules - python file you can import and use
+
+import my_func
+
+looks in sys.path (current working directory is at the top)
+
+my_func.print_ip('1.1.1.1')
+
+from my_func import print_ip
+
+then call print_ip directly
+
+create package with empty file containing __init__.py for starters
+
+import directory
+
+list comprehension transform list from one form to another
+
+my_list2 = [x**2 for x in my list]
+print(my_list2)
+
+this makes a new list with each element squared
+
+there are set and generator comprehensions as well.  
+
+Change data structure from one format to another format.
+
+lambda functions
+
+one line disposable functions
+
+lambda x: x**2   squares x**2
+
+f = lambda x: x**2
+
+print(f(10))
+
+convenient to define function inline and use once
+
+python debugger notes
+
+import pdb - imports python debugger
+
+
+pdb.set_trace() - sets a breakpoint
+
+list . - lists where we are in the program
+list 1, 20  - lists lines 1 - 20 of the program
+
+"s" key will step through
+
+args - lists arguments passed to functions
+p - prints
+pp - pretty prints
+
+up - moves back up through program
+down - moves down the stack
+
+return - types to return value of a function
+
+python -m pdb my_func.py
+starts at first line in function
+
+n - steps to next line in program, doesn't descend into a function at all.
+
+b 10 sets breakpoint at line 10
+
+continue - run until a breakpoint is hit.
+
+can clear breakpoint, can set multiple breakpoints
+
+!print_ip() executes python code (can pass a different value)
