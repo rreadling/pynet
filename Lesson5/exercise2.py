@@ -17,3 +17,19 @@ Call your function using a named argument.
 
 For each function call print the returned IP address to the screen.
 """
+import random
+
+def ip_gen (base = '10.10.10.'):
+    last_octet = random.randint(1,254)
+    print(base+str(last_octet))
+
+ip_gen() #no arguments
+print()
+
+ip_gen('192.168.1.') #positional argument
+print()
+
+new_base = '172.16.130.'
+
+ip_gen(new_base) #named argument
+print()

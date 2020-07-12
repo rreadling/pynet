@@ -19,14 +19,34 @@ def ssh_conn(ip_addr, username, password):
     print("Username:  {}".format(username))
     print("Password:  {}".format(password))
 
+def ssh_conn2(ip_addr, username, password, device_type = "cisco_ios"):
+    print("IP address is {}".format(ip_addr))
+    print("Username:  {}".format(username))
+    print("Password:  {}".format(password))
+    print("Device type:  {}".format(device_type))
+
 
 ssh_conn('192.168.1.1', 'admin', 'letmein') #call with positional arguments
+print()
 
 my_ip = "8.8.8.8"
 my_username = "rob"
 my_pass = "rob1234"
 
 ssh_conn(my_ip, my_username, my_pass) #call with named arguments
+print()
 
 ssh_conn("10.1.1.1", my_username, "mypassword") #call with a mix of each
+print()
+
+ssh_conn2(my_ip,my_username,my_pass) #call ssh_conn2 w/o device_type - default
+print()
+
+ssh_conn2(my_ip,my_username,my_pass,"junos") #specify a device type
+print()
+
+my_dict = {'ip_addr': '172.16.130.1', 'username': 'rob', 'password': '12345', 'device_type': 'appleOS'}
+
+ssh_conn2(**my_dict)
+print()
 
